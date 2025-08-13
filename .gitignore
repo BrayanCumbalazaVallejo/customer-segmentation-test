@@ -1,0 +1,18 @@
+# Entornos virtuales de Python
+/venv/
+/.venv/
+/env/
+
+# Archivos de cache y logs
+__pycache__/
+*.log
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+
+
+# Ignorar todo el contenido DENTRO de las carpetas input/output y data
+/file/input/*
+/file/output/*
+/data/*
