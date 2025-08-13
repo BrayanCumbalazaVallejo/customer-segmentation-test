@@ -2,17 +2,25 @@
 /venv/
 /.venv/
 /env/
+/env3/
 
 # Archivos de cache y logs
 __pycache__/
 *.log
+*.pyc
 
 # Jupyter Notebook Checkpoints
 .ipynb_checkpoints
 
+# Ignorar solo archivos Excel y CSV en carpetas específicas
+/file/input/*.csv
+/file/input/*.xlsx
+/file/input/*.xls
 
+/file/output/*.csv
+/file/output/*.xlsx
+/file/output/*.xls
 
-# Ignorar todo el contenido DENTRO de las carpetas input/output y data
-/file/input/*
-/file/output/*
-/data/*
+/data/*.csv
+/data/*.xlsx
+/data/*.xls
