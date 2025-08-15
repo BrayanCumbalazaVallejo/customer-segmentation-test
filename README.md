@@ -21,24 +21,30 @@ Este repositorio contiene la solución completa a una prueba técnica para un ro
 
 El repositorio tiene una estructura minimalista y centrada en la carpeta `homework/`, que contiene todo el análisis.
 
-```
-├── file/              # Contenedor para los archivos de datos.
-│   ├── input/         # <- Aquí se debe colocar el archivo de datos original.
-│   └── output/        # <- Aquí se guardan los datos ya procesados.
+.
+├── data/               # Directorio para datos sensibles o brutos (Aqui agregar el excel).
+├── file/               # Contenedor para archivos de datos de entrada y salida.
+│   ├── input/          # <- Aquí se deben colocar los archivos de datos originales.
+│   └── output/         # <- Aquí se guardan los datos ya procesados.
 │
-├── data/              # <- Manejo de datos sencibles (visibles solo con codigo+excel).
-├── homework/          # Directorio principal que contiene todo el desarrollo de la prueba.
-│   ├── functions.ipynb
-│   ├── preprocesamiento.ipynb
-│   ├── punto_1.ipynb
-│   ├── punto_2.ipynb
-│   └── README.md      # <- Explica en detalle el flujo de trabajo de los notebooks.
+├── homework/           # Directorio principal con el desarrollo del proyecto.
+│   ├── __pycache__/    # <- Archivos de caché generados por Python.
+│   ├── consultas_sql_punto2.sql # <- Consultas SQL utilizadas en el punto 2.
+│   ├── functions.py    # <- Script con funciones reutilizables.
+│   ├── PreProcess1.ipynb # <- Notebook para el primer paso de preprocesamiento.
+│   ├── PreProcess2.ipynb # <- Notebook para el segundo paso de preprocesamiento.
+│   ├── README.md       # <- Explica el flujo de trabajo de los notebooks y scripts.
+│   ├── Sol_punto_1A.ipynb # <- Solución para la parte A del punto 1.
+│   ├── Sol_punto_1B.ipynb # <- Solución para la parte B del punto 1.
+│   └── Sol_punto_2.ipynb  # <- Solución para el punto 2.
 │
-├── .gitignore         # <- Define los archivos y carpetas a ignorar conservando la privacidad de los mismos.
-├── LICENSE            # <- Licencia del proyecto (MIT).
-├── README.md          # <- Este archivo de documentación principal.
-└── requirements.txt   # <- Lista de dependencias de Python para el proyecto.
-```
+├── venv/               # Directorio del entorno virtual de Python.
+│
+├── .gitignore          # Define archivos y carpetas a ignorar por Git.
+├── LICENSE             # Licencia del proyecto (e.g., MIT).
+├── README.md           # Documentación principal del proyecto.
+└── requirements.txt    # Lista de dependencias de Python.
+
 
 ---
 
