@@ -20,7 +20,7 @@ Este repositorio contiene la solución completa a una prueba técnica para un ro
 ## 2. Estructura del Proyecto
 
 El repositorio tiene una estructura minimalista y centrada en la carpeta `homework/`, que contiene todo el análisis.
-
+(Es Necesario crear estas carpetas)
 .
 ├── data/               # Directorio para datos sensibles o brutos (Aqui agregar el excel).
 ├── file/               # Contenedor para archivos de datos de entrada y salida.
