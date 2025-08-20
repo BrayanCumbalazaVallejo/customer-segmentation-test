@@ -68,7 +68,8 @@ El análisis se encuentra completamente contenido en la carpeta `homework/`. Par
 
 El repositorio está organizado con la siguiente estructura de directorios:
 
-´´´
+```
+.
 ├── data/                   # Directorio para datos limpios y procesados (datos sensibles).
 ├── file/                   # Contenedor para archivos de datos de entrada y salida.
 │   ├── input/              # <- Aquí se coloca el archivo .xlsx inicial.
@@ -93,8 +94,6 @@ El repositorio está organizado con la siguiente estructura de directorios:
 ├── requirements.txt        # Lista de dependencias de Python para instalar.
 ├── setup.bat               # Script de configuración para Windows.
 └── setup.sh                # Script de configuración para Linux/Mac.
-
-´´´
 
 ---
 
