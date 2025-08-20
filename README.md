@@ -1,4 +1,4 @@
-# Prueba Técnica: Análisis y Segmentación de Clientes
+# Análisis y Segmentación de Clientes para Estrategia de Descuentos
 
 * **Autor:** Brayan Armando Cumbalaza Vallejo
 * **Fecha:** 12 de Agosto, 2025
@@ -7,98 +7,109 @@
 
 ## 1. Descripción del Proyecto
 
-Este repositorio contiene la solución completa a una prueba técnica para un rol de Analista de Datos. El objetivo es analizar el comportamiento transaccional de un grupo de clientes para proponer una estrategia de descuentos segmentada y resolver un conjunto de consultas SQL.
+Este repositorio presenta la solución a una prueba técnica para el rol de Analista de Datos. El objetivo principal es analizar el comportamiento transaccional de un grupo de clientes para desarrollar un modelo de **segmentación de clientes** utilizando análisis RFM (Recencia, Frecuencia, Monetario) y el algoritmo K-Means. La segmentación resultante sirve como base para proponer una estrategia de descuentos personalizada.
 
-### Tecnologías Clave
+Adicionalmente, el proyecto incluye la resolución de un conjunto de consultas de negocio utilizando **SQL**.
+
+---
+
+## 2. Guía de Inicio Rápido
+
+Sigue estos pasos para configurar el entorno y replicar el análisis en tu máquina local.
+
+### Prerrequisitos
+
+* **Git** instalado.
+* **Python 3.10** o superior.
+
+### Pasos de Instalación
+
+1.  **Ejecutar el script de configuración automática:**
+    Este script creará un entorno virtual (`venv`), instalará todas las dependencias listadas en `requirements.txt` y registrará un nuevo kernel de Jupyter. Abre una terminal en la raíz del proyecto y ejecuta el comando para tu sistema operativo.
+
+    * **Windows** 💻:
+        ```bash
+        setup.bat
+        ```
+
+    * **macOS / Linux** 🐧:
+        ```bash
+        # Otorga permisos de ejecución (solo la primera vez)
+        chmod +x setup.sh
+
+        # Ejecuta el script
+        ./setup.sh
+        ```
+2.  **Activar el entorno virtual:**
+    Una vez finalizado el script, activa el entorno para empezar a trabajar:
+    * **Windows**: `venv\Scripts\activate`
+    * **macOS / Linux**: `source venv/bin/activate`
+
+3.  **Añadir el archivo de datos:**
+    * Coloca el archivo `Prueba proceso de selección Analista de Datos - bases.xlsx` dentro de la carpeta `file/input/`.
+
+---
+
+## 4. Flujo de Trabajo del Análisis
+
+El análisis se encuentra completamente contenido en la carpeta `homework/`. Para obtener los resultados finales, los notebooks deben ejecutarse en el siguiente orden:
+
+1.  **`PreProcess1.ipynb`**: Realiza la limpieza inicial de los datos, manejo de valores nulos, corrección de tipos de datos y el preprocesamiento básico de las tablas.
+2.  **`PreProcess2.ipynb`**: Ejecuta la ingeniería de características (feature engineering), calculando las métricas de Recencia, Frecuencia y Monetario (RFM) necesarias para la segmentación.
+3.  **`Sol_punto_1A.ipynb`**: Contiene un análisis exploratorio de datos (EDA) para entender las distribuciones, correlaciones y características principales de los clientes.
+4.  **`Sol_punto_1B.ipynb`**: Implementa el modelo de segmentación de clientes utilizando el algoritmo K-Means sobre las métricas RFM. Incluye la selección del número óptimo de clusters y la caracterización de cada segmento.
+5.  **`Sol_punto_2.ipynb`**: Muestra la ejecución y los resultados de las consultas SQL definidas en `consultas_sql_punto2.sql`, resolviendo las preguntas de negocio planteadas.
+
+*Para una descripción más detallada del proceso, puedes consultar el `README.md` ubicado dentro de la carpeta `homework/`.*
+
+---
+
+## 5. Estructura del Proyecto
+
+El repositorio está organizado con la siguiente estructura de directorios:
+
+.
+├── data/                   # Directorio para datos limpios y procesados (datos sensibles).
+├── file/                   # Contenedor para archivos de datos de entrada y salida.
+│   ├── input/              # <- Aquí se coloca el archivo .xlsx inicial.
+│   └── output/             # <- Aquí se guardan los datos intermedios del preprocesamiento.
+│
+├── homework/               # Directorio principal con todo el desarrollo del análisis.
+│   ├── __pycache__/        # <- Archivos de caché generados por Python.
+│   ├── consultas_sql_punto2.sql # <- Script con todas las consultas SQL.
+│   ├── functions.py        # <- Módulo con funciones reutilizables para el análisis.
+│   ├── PreProcess1.ipynb   # <- Notebook para el primer paso de preprocesamiento.
+│   ├── PreProcess2.ipynb   # <- Notebook para el segundo paso de preprocesamiento (RFM).
+│   ├── README.md           # <- Documentación interna del flujo de trabajo.
+│   ├── Sol_punto_1A.ipynb  # <- Notebook con el Análisis Exploratorio de Datos (EDA).
+│   ├── Sol_punto_1B.ipynb  # <- Notebook con la segmentación de clientes (K-Means).
+│   └── Sol_punto_2.ipynb   # <- Notebook con la solución de las consultas SQL.
+│
+├── venv/                   # Directorio del entorno virtual de Python.
+│
+├── .gitignore              # Define archivos y carpetas a ignorar por Git.
+├── LICENSE                 # Licencia del proyecto.
+├── README.md               # Documentación principal del proyecto (este archivo).
+├── requirements.txt        # Lista de dependencias de Python para instalar.
+├── setup.bat               # Script de configuración para Windows.
+└── setup.sh                # Script de configuración para Linux/Mac.
+
+´´´
+
+---
+
+## 5. Tecnologías Utilizadas
 
 * **Lenguaje:** Python 3.10.11
-* **Librerías Principales:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
+* **Librerías Principales:**
+    * `Pandas`: Manipulación y análisis de datos.
+    * `NumPy`: Soporte para operaciones numéricas.
+    * `Scikit-learn`: Implementación del modelo K-Means y preprocesamiento.
+    * `Matplotlib` & `Seaborn`: Visualización de datos.
 * **Entorno:** Jupyter Lab
 
 ---
 
-## 2. Estructura del Proyecto
-
-El repositorio tiene una estructura minimalista y centrada en la carpeta `homework/`, que contiene todo el análisis.
-(Es Necesario crear estas carpetas)
-.
-├── data/               # Directorio para datos sensibles o brutos (Aqui agregar el excel).
-├── file/               # Contenedor para archivos de datos de entrada y salida.
-│   ├── input/          # <- Aquí se deben colocar los archivos de datos originales.
-│   └── output/         # <- Aquí se guardan los datos ya procesados.
-│
-├── homework/           # Directorio principal con el desarrollo del proyecto.
-│   ├── __pycache__/    # <- Archivos de caché generados por Python.
-│   ├── consultas_sql_punto2.sql # <- Consultas SQL utilizadas en el punto 2.
-│   ├── functions.py    # <- Script con funciones reutilizables.
-│   ├── PreProcess1.ipynb # <- Notebook para el primer paso de preprocesamiento.
-│   ├── PreProcess2.ipynb # <- Notebook para el segundo paso de preprocesamiento.
-│   ├── README.md       # <- Explica el flujo de trabajo de los notebooks y scripts.
-│   ├── Sol_punto_1A.ipynb # <- Solución para la parte A del punto 1.
-│   ├── Sol_punto_1B.ipynb # <- Solución para la parte B del punto 1.
-│   └── Sol_punto_2.ipynb  # <- Solución para el punto 2.
-│
-├── venv/               # Directorio del entorno virtual de Python.
-│
-├── .gitignore          # Define archivos y carpetas a ignorar por Git.
-├── LICENSE             # Licencia del proyecto (e.g., MIT).
-├── README.md           # Documentación principal del proyecto.
-└── requirements.txt    # Lista de dependencias de Python.
-
-
----
-
-## 3. Flujo de Trabajo del Análisis
-
-Todo el desarrollo se encuentra dentro de la carpeta `homework/`. El análisis sigue una secuencia lógica a través de tres cuadernos de Jupyter:
-
-1.  **`preprocesamiento.ipynb`**: Se encarga de la ingesta y limpieza de los datos crudos.
-2.  **`punto_1.ipynb`**: Resuelve la sección de **Habilidad Práctica**, realizando la segmentación de clientes.
-3.  **`punto_2.ipynb`**: Resuelve la sección de **Ejecución SQL**, mostrando las consultas y sus resultados.
-
-*Para una descripción más detallada del proceso, consulte el `README.md` ubicado dentro de la carpeta `/homework`.*
-
----
-
-## 4. Cómo Replicar el Análisis
-
-Siga estos pasos para configurar el entorno y ejecutar el proyecto localmente.
-
-### Paso 1: Colocar los Archivos de Datos (Acción Manual) 📁
-
-Para poder ejecutar los notebooks, **coloque el archivo Excel o los CSV originales directamente dentro de la carpeta `homework/`**. Los cuadernos están programados para buscar los datos en su misma ubicación.
-
-### Paso 2: Configurar el Entorno Virtual y Dependencias
-
-Abra una terminal en la raíz del proyecto y ejecute los siguientes comandos:
-
-```bash
-# Crear el entorno virtual para aislar las dependencias
-python -m venv venv
-
-# Activar el entorno
-# En Windows:
-venv\Scripts\activate
-# En macOS / Linux:
-source venv/bin/activate
-
-# Instalar todas las librerías necesarias
-pip install -r requirements.txt
-```
-
-### Paso 3: Ejecutar el Análisis
-
-Inicie Jupyter Lab y navegue a la carpeta de trabajo para ejecutar los cuadernos.
-
-```bash
-# Iniciar Jupyter Lab
-jupyter lab
-```
-
-Una vez iniciado, navegue a la carpeta **`homework/`** y ejecute los cuadernos en orden.
-
----
-
-## 5. Licencia
+## 6. Licencia
 
 Este proyecto está licenciado bajo los términos de la **Licencia MIT**.
